@@ -8,12 +8,13 @@ import math
 
 def iniciar_jogo():
     print("=" * 45)
-    print("   BEM-VINDO AO JOGO DE ADIVINHAÇÃO   ")
+    print("    BEM-VINDO AO JOGO DE ADIVINHAÇÃO    ")
     print("=" * 45)
     print("Tente adivinhar o número secreto entre 1 e 100!")
     
     numero_secreto = random.randint(1, 100)
     tentativas = 0
+    max_tentativas = 10
     acertou = False
 
     # Dica calculada usando a biblioteca math
@@ -21,9 +22,9 @@ def iniciar_jogo():
     print(f"💡 DICA INICIAL: A raiz quadrada aproximada do número é {raiz}")
     print("-" * 45)
 
-    while not acertou:
+    while not acertou and tentativas < max_tentativas:
         try:
-            chute = int(input("Digite o seu palpite: "))
+            chute = int(input(f"Digite o seu palpite (Tentativa {tentativas + 1}/{max_tentativas}): "))
             tentativas += 1
 
             if chute < 1 or chute > 100:
@@ -45,6 +46,9 @@ def iniciar_jogo():
 
         except ValueError:
             print("Entrada inválida! Digite apenas números inteiros.")
+
+    if not acertou:
+        print(f"\n❌ Você atingiu o limite de {max_tentativas} tentativas! O número secreto era {numero_secreto}.")
 
 if __name__ == "__main__":
     iniciar_jogo()
