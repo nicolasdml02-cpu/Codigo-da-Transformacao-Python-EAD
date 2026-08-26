@@ -4,7 +4,7 @@ Arquivo totalmente independente contendo operações matemáticas e testes integ
 """
 
 import math
-
+# Funções de cálculos retornando o resultado do cálculo de dois valores
 def somar(a, b):
     return a + b
 
@@ -29,7 +29,7 @@ def eh_par(numero):
 
 def executar_demonstracao():
     print("=== MÓDULO DE UTILIDADES MATEMÁTICAS ===")
-    
+
     n1, n2 = 15, 4
     print(f"Soma ({n1} + {n2}): {somar(n1, n2)}")
     print(f"Subtração ({n1} - {n2}): {subtrair(n1, n2)}")
