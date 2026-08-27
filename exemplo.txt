@@ -1,0 +1,1 @@
+Olá! Este é um arquivo de texto criado para demonstrar a leitura e escrita em Python.

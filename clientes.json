@@ -1,0 +1,14 @@
+{
+    "CLI001": {
+        "nome": "Nicolas Santana",
+        "email": "nicolas@email.com"
+    },
+    "CLI002": {
+        "nome": "Ivan Paulino",
+        "email": "Ivan@email.com"
+    },
+    "CLI003": {
+        "nome": "Vocação",
+        "email": "vocacao@email.com"
+    }
+}

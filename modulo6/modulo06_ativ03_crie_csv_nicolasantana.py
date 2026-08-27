@@ -1,27 +1,34 @@
-# 1 . Criando um arquivo TXT com o nome "nome_arquivo.txt" 
-# e escrevendo algumas informações nele.
-nome_arquivo = "dados_arquivo.txt"
+# Atividade 3: Sistema de Notas de Alunos em CSV
+import csv
 
+def adicionar_nota(nome_arquivo, aluno, disciplina, nota):
+    # Função para adicionar o registro de nota de um aluno no final do arquivo .csv
+    with open(nome_arquivo, 'a', newline='', encoding='utf-8') as arquivo:
+        escritor = csv.writer(arquivo)
+        escritor.writerow([aluno, disciplina, nota])
+    print(f"Nota de {aluno} gravada no CSV com sucesso.")
 
-# 2 . Conteúdo a ser escrito no arquivo
-# --- ESCRITA ---
-conteudo = [
-    "Ivan Silva;40 anos;02899-000;947541;ivanpaulino@mail.com\n",
-    "Beatriz Vitoria;30 anos;057193-000;978786;beavitoria@mail.com\n",
-    "Eric Renan;17 anos;089880-100;98799;ericrenan@gmail.com\n"
-]
+def carregar_notas(nome_arquivo):
+    # Função para ler todas as notas registradas no arquivo .csv e exibi-las na tela
+    try:
+        with open(nome_arquivo, 'r', encoding='utf-8') as arquivo:
+            leitor = csv.reader(arquivo)
+            print("\n--- Sistema de Notas (CSV) ---")
+            for linha in leitor:
+                if linha:  # Evita linhas em branco
+                    print(f"Aluno: {linha[0]} | Disciplina: {linha[1]} | Nota: {linha[2]}")
+            print("------------------------------\n")
+    except FileNotFoundError:
+        print(f"Erro: O arquivo '{nome_arquivo}' não foi encontrado.")
 
-
-# 3 . Escrevendo no arquivo
-with open(nome_arquivo, "w", encoding="utf-8") as arquivo:
-    arquivo.writelines(conteudo)
-print(f"✅ Arquivo '{nome_arquivo}' criado e escrito com sucesso!")
-
-
-
-# 4 . Lendo o conteúdo do arquivo
-# --- LEITURA ---
-print("\n--- Lendo o conteúdo do arquivo TXT ---")
-with open(nome_arquivo, "r", encoding="utf-8") as arquivo:
-    texto = arquivo.read()
-    print(texto)
+# Execução do programa
+if __name__ == "__main__":
+    arquivo_csv = "notas.csv"
+    
+    # Criando o arquivo e adicionando algumas notas de exemplo
+    adicionar_nota(arquivo_csv, "Nicolas Santana", "Programação Python", "9.5")
+    adicionar_nota(arquivo_csv, "Ivan Paulino", "Programação Python", "8.0")
+    adicionar_nota(arquivo_csv, "Vocação", "Banco de Dados", "10.0")
+    
+    # Lendo o arquivo CSV gerado
+    carregar_notas(arquivo_csv)

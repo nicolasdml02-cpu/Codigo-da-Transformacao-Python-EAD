@@ -4,29 +4,36 @@ Arquivo totalmente independente contendo operações matemáticas e testes integ
 """
 
 import math
-# Funções de cálculos retornando o resultado do cálculo de dois valores
+
+# Retorna a soma de dois números
 def somar(a, b):
     return a + b
 
+# Retorna a subtração do primeiro número pelo segundo
 def subtrair(a, b):
     return a - b
 
+# Retorna a multiplicação de dois números
 def multiplicar(a, b):
     return a * b
 
+# Retorna a divisão de dois números e impede a divisão por zero
 def dividir(a, b):
     if b == 0:
         raise ValueError("Divisão por zero não é permitida.")
     return a / b
 
+# Calcula a área de um círculo (π * r²) validando se o raio é positivo
 def calcular_area_circulo(raio):
     if raio < 0:
         raise ValueError("O raio não pode ser negativo.")
     return math.pi * (raio ** 2)
 
+# Verifica se um número é par (retorna True ou False)
 def eh_par(numero):
     return numero % 2 == 0
 
+# Executa e exibe os testes de demonstração de todas as funções matemáticas
 def executar_demonstracao():
     print("=== MÓDULO DE UTILIDADES MATEMÁTICAS ===")
 
@@ -44,5 +51,6 @@ def executar_demonstracao():
     print(f"O número {numero_teste} é par? {eh_par(numero_teste)}")
     print("=========================================")
 
+# Ponto de entrada do script: executa a demonstração apenas se o arquivo for rodado diretamente
 if __name__ == "__main__":
     executar_demonstracao()
