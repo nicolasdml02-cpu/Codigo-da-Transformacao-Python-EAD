@@ -1,6 +1,6 @@
 import unittest
 
-# Classe Calculadora
+# Classe Calculadora com os métodos principais
 class Calculadora:
     def somar(self, a, b):
         return a + b
@@ -8,8 +8,8 @@ class Calculadora:
     def dividir(self, a, b):
         return a / b
 
-# Testes para a classe Calculadora
-class TesteCalculadora(unittest.TestCase):
+# Testes automatizados para a classe Calculadora
+class TestCalculadora(unittest.TestCase):
 
     def setUp(self):
         # Instancia a calculadora antes de cada teste
